@@ -1,3 +1,3 @@
-var Client = require('instagram-private-api').V1;
+var Client = require('client/v1');
 
 console.log(__dirname);
