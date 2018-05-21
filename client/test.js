@@ -1,3 +1,3 @@
-var Client = require('v1');
+var Client = require('v1.js');
 
 console.log(__dirname);
