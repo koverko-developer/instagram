@@ -16,7 +16,7 @@ router.post('/session/create/', function(req, res) {
       console.log(req.body);
       fs.appendFile(DR+login+'.json', '', function (err) {
         if (err) res.send('err');
-        res.send('Succes');
+        else res.send('Succes');
       });
 
   });
