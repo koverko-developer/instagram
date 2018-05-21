@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var dir = __dirname + './client/v1/cookies/';
 var Client = require('instagram-private-api').V1;
 
-const DR = '/home/mobi-app/development/node/instagram/instagram-private-api/client/v1/cookies/'
+const DR = '/root/instagram/client/v1/cookies/'
 var fs = require('fs');
 //require('constants.js')
 //console.log(cs);
