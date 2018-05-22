@@ -16,7 +16,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
-const DR = '/home/mobi-app/development/node/instagram/instagram-private-api/client/v1/cookies/'
+const DR = '/root/instagram/client/v1/cookies/'
 var fs = require('fs');
 
 const err_no_key = '{\"type\" : \"err_dev_key\" , \"message\" : \"key is not valid\"}';
