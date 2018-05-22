@@ -14,7 +14,7 @@ router.post('/get/', function (req, res) {
   var storage = new Client.CookieFileStorage(DR+login+'.json');
   var session = new Client.Session(device, storage)
 
-  fs.readFile("DR+login+'.json',", "utf8", function(err, data) {
+  fs.readFile(DR+login+'.json', "utf8", function(err, data) {
         
         if(err) res.send(err);
         else {
