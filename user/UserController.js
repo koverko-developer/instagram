@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var Client = require('instagram-private-api').V1;
-const DR = '/home/mobi-app/development/node/instagram/instagram-private-api/client/v1/cookies/'
+const DR = '/root/instagram/client/v1/cookies/'
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
@@ -13,11 +13,15 @@ router.post('/get/', function (req, res) {
   var storage = new Client.CookieFileStorage(DR+login+'.json');
   var session = new Client.Session(device, storage)
 
-  session.getAccount()
-    .then(function(account) {
-    	console.log(account.params)
-      res.send(account.params)
-    })
+  fs.readFile("DR+login+'.json',", "utf8", function(err, data) {
+        
+        if(err) res.send(err);
+        else {
+          console.log(data)
+          res.send(data)  
+        }
+      
+      });
 });
 
 
