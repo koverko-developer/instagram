@@ -3,6 +3,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var Client = require('instagram-private-api').V1;
 const DR = '/root/instagram/client/v1/cookies/'
+var fs = require('fs');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
