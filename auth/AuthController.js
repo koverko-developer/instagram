@@ -124,6 +124,9 @@ function sentLogin(res, req) {
     .then(function(relationship) {
       console.log(relationship.params)
     })
+    .catch( function() {
+        console.log('error');
+    })
 
 }
 function sendResInfoAcc(res, req) {
