@@ -25,6 +25,7 @@ const err_create_file = '{\"type\" : \"err_create_session\" , \"message\" : \"er
 const create_file_succes = '{\"type\" : \"successfully\" , \"message\" : \"successfully create session\"}'
 const err_login = '{\"type\" : \"err_auth\" , \"message\" : \"Authorisation Error\"}'
 const err_auth = '{\"type\" : \"err_auth\" , \"message\" : \"login or password not valid...\"}'
+const err_login_valid = '{\"type\" : \"err_auth\" , \"message\" : \"empty login...\"}'
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
@@ -106,6 +107,12 @@ function errAuthPass(res) {
   console.log(JSON.parse(str));
   res.send(JSON.parse(str))
 }
+function errLoginValid(res) {
+  var str = JSON.stringify(err_login_valid);
+  console.log(JSON.parse(str));
+  res.send(JSON.parse(str))
+}
+
 function sentLogin(res, req) {
 
   let login = req.body.login;
@@ -117,7 +124,10 @@ function sentLogin(res, req) {
   var device = new Client.Device(login);
   var storage = new Client.CookieFileStorage(DR+login+'.json');
   var session = new Client.Session(device, storage)
-
+  if(login === '') {
+   errLoginValid(res);
+   return;
+  }
   Client.Session.create(device, storage, login, pass)
     .then(function(session) {
       console.log('login');
