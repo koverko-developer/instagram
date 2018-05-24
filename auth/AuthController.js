@@ -24,6 +24,7 @@ const err_no_user = '{\"type\" : \"err_dev_uname\" , \"message\" : \"developer w
 const err_create_file = '{\"type\" : \"err_create_session\" , \"message\" : \"error creating session file\"}'
 const create_file_succes = '{\"type\" : \"successfully\" , \"message\" : \"successfully create session\"}'
 const err_login = '{\"type\" : \"err_auth\" , \"message\" : \"Authorisation Error\"}'
+const err_auth = '{\"type\" : \"err_auth\" , \"message\" : \"login or password not valid...\"}'
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
@@ -100,6 +101,11 @@ function errAuth(res) {
   console.log(JSON.parse(str));
   res.send(JSON.parse(str))
 }
+function errAuthPass(res) {
+  var str = JSON.stringify(err_auth);
+  console.log(JSON.parse(str));
+  res.send(JSON.parse(str))
+}
 function sentLogin(res, req) {
 
   let login = req.body.login;
@@ -126,6 +132,7 @@ function sentLogin(res, req) {
     })
     .catch( function() {
         console.log('error');
+        errAuthPass(res);
     })
 
 }
