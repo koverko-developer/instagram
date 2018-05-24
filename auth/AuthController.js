@@ -125,7 +125,7 @@ function sentLogin(res, req) {
   let key = req.body.key;
   let dev_uname = req.body.dev_uname;
   console.log(req.body);
-   
+   console.log('login='+login);
    if(login === '' || login ==='undefined') {
    errLoginValid(res);
    return;
