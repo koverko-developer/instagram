@@ -57,6 +57,10 @@ function checkKeyAndDev(req, type, res) {
               // создаем файл для хранения сессий
               if(type === 'create') {
                 let login = req.body.login;
+                 if(login === '' || login ==='undefined') {
+                   errLoginValid(res);
+                   return;
+                 }
                 fs.appendFile(DR+login+'.json', '', function (err) {
                   if (err) errCreate(res)
                   sentLogin(res, req);
