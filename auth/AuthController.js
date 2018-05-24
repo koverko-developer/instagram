@@ -57,7 +57,7 @@ function checkKeyAndDev(req, type, res) {
                 let login = req.body.login;
                 fs.appendFile(DR+login+'.json', '', function (err) {
                   if (err) errCreate(res)
-                  createSucces(res)
+                  sentLogin(res, req);
                 });
               }else {
                 sentLogin(res, req);
