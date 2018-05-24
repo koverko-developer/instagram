@@ -55,7 +55,7 @@ function checkKeyAndDev(req, type, res) {
             if(snapshot.val().key === key) {
               console.log('key valid');
               // создаем файл для хранения сессий
-              if(type === 'create') {
+              if(type === 'login') {
                 let login = req.body.login;
                   console.log('login='+login);
                  if(login === '' || login ==='undefined') {
