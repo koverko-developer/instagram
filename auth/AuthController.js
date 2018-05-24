@@ -120,14 +120,15 @@ function sentLogin(res, req) {
   let key = req.body.key;
   let dev_uname = req.body.dev_uname;
   console.log(req.body);
-
-  var device = new Client.Device(login);
-  var storage = new Client.CookieFileStorage(DR+login+'.json');
-  var session = new Client.Session(device, storage)
-  if(login === '') {
+   
+   if(login === '' || login ==='undefined') {
    errLoginValid(res);
    return;
   }
+  var device = new Client.Device(login);
+  var storage = new Client.CookieFileStorage(DR+login+'.json');
+  var session = new Client.Session(device, storage)
+  
   Client.Session.create(device, storage, login, pass)
     .then(function(session) {
       console.log('login');
