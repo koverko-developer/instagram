@@ -57,7 +57,7 @@ function checkKeyAndDev(req, type, res) {
               // создаем файл для хранения сессий
               if(type === 'create') {
                 let login = req.body.login;
-                  console.log(login);
+                  console.log('login='+login);
                  if(login === '' || login ==='undefined') {
                    errLoginValid(res);
                    return;
